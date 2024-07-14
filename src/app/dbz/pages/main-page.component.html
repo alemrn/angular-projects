@@ -1,0 +1,19 @@
+<h1>DBZ Personajes</h1>
+
+<hr />
+
+<div
+  class="relative overflow-x-auto shadow-md sm:rounded-lg grid grid-flow-col auto-cols-max hover:auto-cols-min"
+>
+  <div class="me-2 px-2.5 py-2.5">
+    <dbz-list
+      [characterList]="dbzService.characters"
+      (characterDeleteEvent)="dbzService.onDeleteCharacter($event)"
+    ></dbz-list>
+  </div>
+  <div class="me-2 px-2.5 py-2.5">
+    <dbz-add-character
+      (myCharacterEvent)="dbzService.onNewCharacter($event)"
+    ></dbz-add-character>
+  </div>
+</div>

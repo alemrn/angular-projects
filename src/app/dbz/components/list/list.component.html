@@ -1,0 +1,31 @@
+<h4 class="text-xl font-sans">Listado</h4>
+<ul
+  class="w-80 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white"
+>
+  <li
+    *ngFor="
+      let character of characterList;
+      let i = index;
+      let isFirst = first;
+      let isLast = last;
+      let isEven = even
+    "
+    class="w-full px-6 py-2 border-b border-gray-200 rounded-t-lg dark:border-gray-600"
+    [ngClass]="{
+      'list-group-item-dark': isLast,
+      'list-group-item-light': isEven
+    }"
+  >
+    <span class="text-primary">{{ i + 1 }} - </span
+    ><span>{{ character.name }}</span> -
+    <strong>power:</strong>
+    {{ character.power }}
+
+    <button
+      class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+      (click)="onDeleteCharacter(character.id || '')"
+    >
+      X
+    </button>
+  </li>
+</ul>
